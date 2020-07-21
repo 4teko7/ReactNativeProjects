@@ -2,24 +2,28 @@ import React from 'react';
 import { View, Text, StyleSheet, TextInput, Button } from 'react-native';
 import InputCard from '../components/InputCard';
 import Card from '../components/Card';
+import colors from '../constants/color';
 
 const StartGameScreen = props => {
     return (
         <View style = {styles.screen}>
-            <Card style={{marginVertical:10, padding:0,backgroundColor:"#03fcc6"}}>
+            <Card style={{marginVertical:10, padding:0,backgroundColor:colors.cardBack}}>
                 <View style = {styles.titleView}>
                     <Text style={styles.title}>Start a New Game</Text>
                 </View>
             </Card>
-            <Card style={{backgroundColor:"#03fcc6"}}>
+            <Card style={{backgroundColor:colors.cardBack}}>
                 <View style={styles.inputContainer}>
-                    <Text style={styles.selectNumber}>Select a Number</Text>
-                    <TextInput style={styles.textInput} />
+                    <TextInput
+                    style={styles.textInput} 
+                    placeholder="Select a Number"
+                    placeholderTextColor={colors.placeHolder}
+                    />
                     
                 </View>
                 <View style={styles.buttonContainer}>
-                    <View style={styles.button}><Button title="Reset" color="#c717fc" onPress={() => {}} /></View>
-                    <View style={styles.button}><Button title="Confirm" color="#f7287b" onPress={() => {}} /></View>
+                    <View style={styles.button}><Button title="Reset" color={colors.accent} onPress={() => {}} /></View>
+                    <View style={styles.button}><Button title="Confirm" color={colors.primary} onPress={() => {}} /></View>
                 </View>
             </Card>
         </View>
@@ -50,8 +54,10 @@ const styles = StyleSheet.create({
     textInput: {
         borderBottomColor: "green",
         borderBottomWidth: 1,
-        width:"40%",
-        paddingTop:10
+        width:"80%",
+        paddingTop:10,
+        fontSize:20,
+        textAlign: "center"
     },
     buttonContainer: {
         flexDirection: "row",
