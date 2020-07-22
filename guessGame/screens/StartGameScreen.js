@@ -44,20 +44,22 @@ const StartGameScreen = props => {
         setConfirmed(true);
         setSelectedNumber(chosenNumber);
         setEnteredValue("");
+        Keyboard.dismiss();
     };
 
     let confirmedOutput;
     if(confirmed){
         confirmedOutput = selectedNumber ? (
-        <Card style={{marginVertical:10, padding:5, backgroundColor:colors.cardBack}}>
-            <Text style={{textAlign: "center",fontSize:22}}>Chosen Number</Text>
-            <Hr style={{width:"60%"}} />
-            <NumberContainer>
-                {selectedNumber}
-            </NumberContainer>
-            <MyButton />
-            
-        </Card>
+        <View style={{alignItems:"center"}}>
+            <Card style={styles.chosenNumberCard}>
+                <Text style={{textAlign: "center",fontSize:22}}>Chosen Number</Text>
+                <Hr style={{width:"80%"}} />
+                <NumberContainer>
+                    {selectedNumber}
+                </NumberContainer>
+                <MyButton buttons = {[<Button title="Start Game" onPress={() => {}} />]} />
+            </Card>
+        </View>
 
         ) : <Text></Text>;
     }
@@ -88,10 +90,8 @@ const StartGameScreen = props => {
                         value={enteredValue}
                         />
                     </View>
-                    <View style={styles.buttonContainer}>
-                        <View style={styles.button}><Button title="Reset" color={colors.accent} onPress={resetInputHandler} /></View>
-                        <View style={styles.button}><Button title="Confirm" color={colors.primary} onPress={confirmInputHandler} /></View>
-                    </View>
+                    <MyButton buttons = {[<Button title="Reset" color={colors.accent} onPress={resetInputHandler} />,<Button title="Confirm" color={colors.primary} onPress={confirmInputHandler} />]} />
+                    
                 </Card>
                 
                 {confirmedOutput}
@@ -106,7 +106,7 @@ const StartGameScreen = props => {
 const styles = StyleSheet.create({
     screen: {
         padding:10,
-        height: "100%"
+        height: "100%",
         // backgroundColor: "grey"
     },
     titleView: {
@@ -129,15 +129,12 @@ const styles = StyleSheet.create({
         padding:0,
         backgroundColor:colors.cardBack
     },
-    buttonContainer: {
-        flexDirection: "row",
-        width: "100%",
-        justifyContent: "space-around",
-        // paddingHorizontal: 15,
-        marginTop:15
-    },
-    button: {
-        width:100
+    chosenNumberCard: {
+        marginVertical:10,
+        padding:5,
+        backgroundColor:colors.cardBack,
+        alignItems: "center",
+        width:"80%"
     }
 });
 

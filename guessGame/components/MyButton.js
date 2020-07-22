@@ -3,11 +3,18 @@ import { View, Text, StyleSheet,Button } from 'react-native';
 import Colors from '../constants/color';
 
 const MyButton = props =>{
+    const buttons = [];
+    props.buttons.map(button => {
+        buttons.push(
+            <View style={{...styles.parentViewStyle,...props.parentViewStyle}}>
+                {button}
+            </View>
+        )
+    });
+
     return (
         <View style={{...styles.grandViewStyle,...props.grandViewStyle}}>
-            <View style={{...styles.parentViewStyle,...props.parentViewStyle}}>
-                <Button title="Start Game" style={{...props.buttonStyle}}/>
-            </View>
+            {buttons}
         </View>
     );
 }

@@ -12,11 +12,13 @@ const Hr = props => {
 
 const styles = StyleSheet.create({
     hrView: {
-        alignItems:"center"
+        alignItems:"center",
+        width:"100%"
     },
     hrText: {
         borderBottomColor: 'grey',
         borderBottomWidth: 1,
+        borderRadius:60,
         marginTop:-10,
         width:"90%"
     }
