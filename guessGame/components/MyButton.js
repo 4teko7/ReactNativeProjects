@@ -13,7 +13,7 @@ const MyButton = props =>{
     });
 
     return (
-        <View style={{...styles.grandViewStyle,...props.grandViewStyle}}>
+        <View key={new Date().getMilliseconds()} style={{...styles.grandViewStyle,...props.grandViewStyle}}>
             {buttons}
         </View>
     );
@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         width: "100%",
         justifyContent: "space-around",
-        marginTop:15
+        marginTop:15,
     },
     parentViewStyle: {
         width:"40%"

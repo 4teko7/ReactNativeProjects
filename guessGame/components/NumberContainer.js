@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
         marginVertical: 10,
         alignItems: "center",
         justifyContent: "center",
-        elevation:3
+        elevation: 2
     },
     number: {
         color: Colors.accent,
