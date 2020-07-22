@@ -1,10 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, Text, StyleSheet, TextInput, Button } from 'react-native';
 import InputCard from '../components/InputCard';
 import Card from '../components/Card';
 import colors from '../constants/color';
+import Input from "../components/Input";
 
 const StartGameScreen = props => {
+    const [enteredValue,setEnteredValue] = useState("");
+    
+    const numberInputHandler = inputText =>{
+        setEnteredValue(inputText.replace(/[^0-9]/g,''))
+    }
+
     return (
         <View style = {styles.screen}>
             <Card style={{marginVertical:10, padding:0,backgroundColor:colors.cardBack}}>
@@ -14,12 +21,18 @@ const StartGameScreen = props => {
             </Card>
             <Card style={{backgroundColor:colors.cardBack}}>
                 <View style={styles.inputContainer}>
-                    <TextInput
-                    style={styles.textInput} 
-                    placeholder="Select a Number"
-                    placeholderTextColor={colors.placeHolder}
+                    <Input
+                    blurOnSubmit
+                    autoCapitalize="none"
+                    autoCorrect={false}
+                    keyboardType="number-pad"
+                    maxLength={2}
+                    placeholder = "Select a Number"
+                    placeholderTextColor = {colors.placeHolder}
+                    // style = {{ width:"%80"}}
+                    onChangeText={numberInputHandler}
+                    value={enteredValue}
                     />
-                    
                 </View>
                 <View style={styles.buttonContainer}>
                     <View style={styles.button}><Button title="Reset" color={colors.accent} onPress={() => {}} /></View>
@@ -50,14 +63,6 @@ const styles = StyleSheet.create({
     },
     selectNumber: {
         
-    },
-    textInput: {
-        borderBottomColor: "green",
-        borderBottomWidth: 1,
-        width:"80%",
-        paddingTop:10,
-        fontSize:20,
-        textAlign: "center"
     },
     buttonContainer: {
         flexDirection: "row",
