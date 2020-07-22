@@ -5,6 +5,7 @@ import Header from './components/Header';
 import StartGameScreen from './screens/StartGameScreen';
 import GameScreen from './screens/GameScreen';
 import GameOverScreen from './screens/GameOverScreen';
+import MyFooter from './components/MyFooter';
 
 export default function App() {
   const [userNumber,setUserNumber] = useState();
@@ -35,12 +36,16 @@ export default function App() {
 
   return (
     <View style={styles.screen}>
-      <Header title="Guess a Number" />
-      {content}
+        <Header title="Guess a Number" />
+        {content}
+        <MyFooter />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-
+  screen: {
+    height:"100%",
+    width:"100%"
+  }
 });
