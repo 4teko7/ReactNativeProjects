@@ -64,6 +64,7 @@ const GameScreen = props => {
             <Card style={{width:"90%"}}>
                 <MyButton buttons={[<Button title="LOWER" color={colors.accent} onPress={nextGameHandler.bind(this,"lower")} />,<Button title="GREATER" color={colors.primary} onPress={nextGameHandler.bind(this,"greater")} />]} />
             </Card>
+            <MyButton parentViewStyle={styles.newGameButtonView} buttons = {[<Button title="New Game" onPress={() => props.onRestartGame()} />]} />
         </View>
     );
 
@@ -73,6 +74,15 @@ const styles = StyleSheet.create({
     screen: {
         padding:10,
         alignItems:"center"
+    },
+    newGameButtonView: {
+        elevation: 12,
+        paddingTop:25,
+        paddingBottom:12,
+        borderRadius: 10,
+        alignItems:"center",
+        justifyContent:"center",
+        width:"40%"
     }
 });
 
