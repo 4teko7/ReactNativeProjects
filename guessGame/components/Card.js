@@ -22,7 +22,8 @@ const styles = StyleSheet.create({
          elevation: 12,
          padding:10,
          paddingBottom:15,
-         borderRadius: 10
+         borderRadius: 10,
+         alignItems:"center"
     }
 });
 

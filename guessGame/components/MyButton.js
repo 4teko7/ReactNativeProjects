@@ -4,9 +4,10 @@ import Colors from '../constants/color';
 
 const MyButton = props =>{
     const buttons = [];
+    let id=0;
     props.buttons.map(button => {
         buttons.push(
-            <View style={{...styles.parentViewStyle,...props.parentViewStyle}}>
+            <View key={id++} style={{...styles.parentViewStyle,...props.parentViewStyle}}>
                 {button}
             </View>
         )
