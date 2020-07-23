@@ -53,7 +53,8 @@ export default function App() {
     const index = tmpTodoDate.toString().indexOf(":",tmpTodoDate.toString().indexOf(":")+1);
     const todoDate = tmpTodoDate.toString().substring(0,index !== -1 ? index : tmpTodoDate.length );
       try {
-        const todos = [...todoList,{key: new Date().getTime(), todo: enteredTodo, date: todoDate}]
+        const filteredTodoList = todoList.filter(tmpTodo => tmpTodo.key !== todo.key);
+        const todos = [...filteredTodoList,{key: new Date().getTime(), todo: enteredTodo, date: todoDate}]
         setEnteredTodo("")
         setTodoList(todos);
         storeTodoData(todosName,todos)
@@ -65,8 +66,7 @@ export default function App() {
   const onEditHandler = (todoId) => {
     todoList.filter(tmpTodo => {
       if(tmpTodo.key === todoId){
-        setTodo(tmpTodo)
-        console.log("tmpTodo.todo : " , tmpTodo.todo);
+        setTodo(tmpTodo);
         setEnteredTodo(tmpTodo.todo);
       }
     });
