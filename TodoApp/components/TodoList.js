@@ -8,7 +8,7 @@ const TodoList = props => {
     const {todoList} = props;
 
     return (
-          <FlatList keyExtractor={(item,index) => item.key}  data={todoList} renderItem = {itemData =>
+          <FlatList keyExtractor={(item,index) => item.key.toString()}  data={todoList} renderItem = {itemData =>
           (
           <ListItem viewStyle={{padding:20}}>
             <View style={{flexDirection:"row",justifyContent:"space-around"}}>
