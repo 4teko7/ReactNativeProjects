@@ -61,6 +61,7 @@ export default function App() {
       <View style={styles.screen}>
           <TodoInput addTodoHandler={addTodoHandler} />
           <TodoList todoList={todoList} style={{marginBottom:10}} onDeleteHandler={onDeleteHandler}/>
+          <View style={{marginBottom:55}}></View>
           <Footer />
       </View> 
     </TouchableWithoutFeedback>
