@@ -16,7 +16,7 @@ const TodoList = props => {
             <View style={{right:0,top:-5,position:"absolute"}}><Button title="X" /></View>
             </View>
           </ListItem>
-          )} />
+          )} style={props.style} />
     );
 }
 
