@@ -1,8 +1,10 @@
-import React, {useState} from 'react';
+import React, {useState,useEffect} from 'react';
 import {View,Text, Button, Platform} from 'react-native';
 import DateTimePicker from '@react-native-community/datetimepicker';
 
 export const MyDate = (props) => {
+  const { dateOfEditedTodo } = props;
+  console.log("dateOfEditedTodo : " , dateOfEditedTodo);
   const [date, setDate] = useState(new Date(1598051730000));
   const [mode, setMode] = useState('date');
   const [show, setShow] = useState(false);
@@ -26,6 +28,13 @@ export const MyDate = (props) => {
   const showTimepicker = () => {
     showMode('time');
   };
+
+  useEffect(() => {
+    props.todoDate(dateOfEditedTodo);
+    console.log("MYDATE");
+
+  }, [dateOfEditedTodo])
+
 
   return (
     <View style={{flexDirection:"row",width:"100%",alignItems:"center",justifyContent:"space-around"}}>

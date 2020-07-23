@@ -5,7 +5,7 @@ import { View, Text, StyleSheet,Button,FlatList, Touchable, TouchableOpacity } f
 import ListItem from './ListItem';
 
 const TodoList = props => {
-    const {todoList,onDeleteHandler} = props;
+    const {todoList,onDeleteHandler,onEditHandler} = props;
     return (
           <FlatList keyExtractor={(item,index) => item.key.toString()}  data={todoList} renderItem = {itemData =>
           (
@@ -14,7 +14,8 @@ const TodoList = props => {
               <View style={{flexDirection:"row",justifyContent:"space-around"}}>
                 <View style={styles.date}><Text>{itemData.item.date}</Text></View>
                 <View style={{maxWidth:"78%"}}><Text style={styles.todo}>{itemData.item.todo}</Text></View>
-                <View style={{right:0,top:-5,position:"absolute"}}><Button title="X" onPress={onDeleteHandler.bind(this,itemData.item.key)} /></View>
+                <View style={{right:20,top:-5,position:"absolute"}}><Button title="E" onPress={onEditHandler.bind(this,itemData.item.key)} /></View>
+                <View style={{right:-10,top:-5,position:"absolute"}}><Button title="X" color={"red"} onPress={onDeleteHandler.bind(this,itemData.item.key)} /></View>
               </View>
             </ListItem>
           // </TouchableOpacity>
