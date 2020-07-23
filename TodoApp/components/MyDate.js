@@ -4,7 +4,6 @@ import DateTimePicker from '@react-native-community/datetimepicker';
 
 export const MyDate = (props) => {
   const { dateOfEditedTodo } = props;
-  console.log("dateOfEditedTodo : " , dateOfEditedTodo);
   const [date, setDate] = useState(new Date(1598051730000));
   const [mode, setMode] = useState('date');
   const [show, setShow] = useState(false);
@@ -31,8 +30,6 @@ export const MyDate = (props) => {
 
   useEffect(() => {
     props.todoDate(dateOfEditedTodo);
-    console.log("MYDATE");
-
   }, [dateOfEditedTodo])
 
 

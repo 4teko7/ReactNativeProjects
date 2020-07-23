@@ -54,7 +54,7 @@ export default function App() {
     const todoDate = tmpTodoDate.toString().substring(0,index !== -1 ? index : tmpTodoDate.length );
       try {
         const filteredTodoList = todoList.filter(tmpTodo => tmpTodo.key !== todo.key);
-        const todos = [...filteredTodoList,{key: new Date().getTime(), todo: enteredTodo, date: todoDate}]
+        const todos = [{key: new Date().getTime(), todo: enteredTodo, date: todoDate},...filteredTodoList]
         setEnteredTodo("")
         setTodoList(todos);
         storeTodoData(todosName,todos)
