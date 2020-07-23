@@ -17,6 +17,15 @@ export default function App() {
   let id = 0;
   const [todoList,setTodoList] = useState([]);
 
+  const removeTodoData = async (name) => {
+    try {
+      await AsyncStorage.removeItem(name);
+      setTodoList([]);
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
   const getTodoData = async (name) => {
     try {
       const value = await AsyncStorage.getItem(name);
@@ -36,9 +45,13 @@ export default function App() {
     }
   }
 
-  const addTodoHandler = async (enteredTodo) => {
+  
+
+  const addTodoHandler = async (enteredTodo,setEnteredTodo,tmpTodoDate) => {
+    const todoDate = tmpTodoDate.toString().substring(0,tmpTodoDate.toString().indexOf(" G"));
       try {
-        const todos = [...todoList,{key: new Date().getTime(), value: enteredTodo}]
+        const todos = [...todoList,{key: new Date().getTime(), todo: enteredTodo, date: todoDate}]
+        setEnteredTodo("")
         setTodoList(todos);
         storeTodoData(todosName,todos)
       } catch (error) {
