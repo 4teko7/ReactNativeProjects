@@ -6,7 +6,6 @@ import ListItem from './ListItem';
 
 const TodoList = props => {
     const {todoList,onDeleteHandler} = props;
-
     return (
           <FlatList keyExtractor={(item,index) => item.key.toString()}  data={todoList} renderItem = {itemData =>
           (
