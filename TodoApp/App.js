@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React,{useState} from 'react';
-import { StyleSheet, Text, View,Button,TextInput,Keyboard,TouchableWithoutFeedback, ScrollView } from 'react-native';
+import { StyleSheet, Text, View,Button,TextInput,Keyboard,TouchableWithoutFeedback, FlatList, ScrollView } from 'react-native';
 
 //Components
 import MyButton from './components/styledComponents/MyButton';
@@ -10,6 +10,7 @@ import ListItem from './components/ListItem';
 import TodoList from './components/TodoList';
 
 export default function App() {
+  let id = 0;
   const [enteredTodo,setEnteredTodo] = useState("");
   const [todoList,setTodoList] = useState([]);
 
@@ -18,7 +19,7 @@ export default function App() {
   }
 
   const addTodoHandler = () => {
-    setTodoList([...todoList,enteredTodo]);
+    setTodoList([...todoList,{key: new Date().getTime(), value: enteredTodo}]);
   }
   
 
@@ -38,9 +39,7 @@ export default function App() {
           } style={{flex:4}}/>
           <MyButton button={<Button title="Add" color="red" onPress={addTodoHandler}/>} style={{width:"40%",margin:10,flex:1}} />
         </View>
-        <ScrollView>
             <TodoList todoList={todoList} />
-        </ScrollView>
       </View> 
     </TouchableWithoutFeedback>
   );

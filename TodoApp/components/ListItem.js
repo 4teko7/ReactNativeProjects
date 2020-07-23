@@ -1,13 +1,15 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet,TouchableWithoutFeedback } from 'react-native';
 
 const ListItem = props => {
     return (
-        <View style={{alignItems:"center"}}>
-            <View style={{...styles.view,...props.viewStyle}}>
-                {props.children}
+        <TouchableWithoutFeedback>
+            <View style={{alignItems:"center"}}>
+                <View style={{...styles.view,...props.viewStyle}}>
+                    {props.children}
+                </View>
             </View>
-        </View>
+        </TouchableWithoutFeedback>
     );
 }
 
