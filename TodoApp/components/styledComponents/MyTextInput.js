@@ -5,7 +5,7 @@ const MyTextInput = props => {
     const {textInput} = props;
 
     return (
-        <View style={{...styles.textInputView,...props.style}}>
+    <View style={{...styles.textInputView,...props.style}}>
         {textInput}
     </View>
     );
@@ -13,6 +13,7 @@ const MyTextInput = props => {
 
 const styles = StyleSheet.create({
     textInputView: {
+
     }
 });
 
