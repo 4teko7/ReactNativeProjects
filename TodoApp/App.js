@@ -9,13 +9,15 @@ import Hr from './components/Hr';
 import ListItem from './components/ListItem';
 import TodoList from './components/TodoList';
 import TodoInput from './components/TodoInput';
+import storage from './utils/Storage';
+
 const todosName = "todoList";
 
 export default function App() {
   let id = 0;
   const [todoList,setTodoList] = useState([]);
 
-  const getData = async (name) => {
+  const getTodoData = async (name) => {
     try {
       const value = await AsyncStorage.getItem(name);
       if (value !== null && value.length > 0) {
@@ -26,7 +28,7 @@ export default function App() {
     }
   };
 
-  const storeData = async (name,filteredTodoList) => {
+  const storeTodoData = async (name,filteredTodoList) => {
     try {
       await AsyncStorage.setItem(name, JSON.stringify(filteredTodoList));
     } catch (error) {
@@ -38,7 +40,7 @@ export default function App() {
       try {
         const todos = [...todoList,{key: new Date().getTime(), value: enteredTodo}]
         setTodoList(todos);
-        storeData(todosName,todos)
+        storeTodoData(todosName,todos)
       } catch (error) {
         console.log(error)
       }
@@ -47,11 +49,11 @@ export default function App() {
   const onDeleteHandler = todoId => {
     const filteredTodoList = todoList.filter(todo => todo.key !== todoId);
     setTodoList(filteredTodoList);
-    storeData(todosName,filteredTodoList);
+    storeTodoData(todosName,filteredTodoList);
   }
 
   useEffect(() => {
-    getData(todosName);
+    getTodoData(todosName);
   }, [])
 
   return (
