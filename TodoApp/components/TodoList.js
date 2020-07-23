@@ -18,7 +18,6 @@ const TodoList = props => {
       </ListItem>
     );
   });
-   console.log(todoViews)
     return (
          <View>{todoViews}</View>
     );

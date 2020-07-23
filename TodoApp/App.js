@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React,{useState} from 'react';
-import { StyleSheet, Text, View,Button,TextInput } from 'react-native';
+import { StyleSheet, Text, View,Button,TextInput,Keyboard,TouchableWithoutFeedback, ScrollView } from 'react-native';
 
 //Components
 import MyButton from './components/styledComponents/MyButton';
@@ -23,14 +23,20 @@ export default function App() {
   
 
   return (
-    <View style={styles.screen}>
-      <MyTextInput textInput={<TextInput placeholder={"Add Goal"} onChangeText={todoInputHandler} value={enteredTodo} style={{textAlign:"center"}} />} style={{marginTop:30}}/>
-      <Hr style={{marginBottom:10}}/>
-      <View style={{flexDirection:"row",justifyContent:"space-around"}}>
-        <MyButton button={<Button title="Add" color="red" onPress={addTodoHandler}/>} style={{width:"40%",margin:10}} />
-      </View>
-          <TodoList todoList={todoList} />
-    </View>
+    <TouchableWithoutFeedback onPress={() => {Keyboard.dismiss();}} > 
+      
+   
+      <View style={styles.screen}>
+        <MyTextInput textInput={<TextInput placeholder={"Add Goal"} onChangeText={todoInputHandler} value={enteredTodo} style={{textAlign:"center"}} />} style={{marginTop:30}}/>
+        <Hr style={{marginBottom:10}}/>
+        <View style={{flexDirection:"row",justifyContent:"space-around"}}>
+          <MyButton button={<Button title="Add" color="red" onPress={addTodoHandler}/>} style={{width:"40%",margin:10}} />
+        </View>
+        <ScrollView>
+            <TodoList todoList={todoList} />
+        </ScrollView>
+      </View> 
+    </TouchableWithoutFeedback>
   );
 }
 
