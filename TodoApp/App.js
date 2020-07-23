@@ -18,11 +18,16 @@ export default function App() {
     setTodoList([...todoList,{key: new Date().getTime(), value: enteredTodo}]);
   }
 
+  const onDeleteHandler = todoId => {
+    const filteredTodoList = todoList.filter(todo => todo.key !== todoId);
+    setTodoList(filteredTodoList);
+  }
+
   return (
     <TouchableWithoutFeedback onPress={() => {Keyboard.dismiss();}} > 
       <View style={styles.screen}>
           <TodoInput addTodoHandler={addTodoHandler} />
-          <TodoList todoList={todoList} style={{marginBottom:10}}/>
+          <TodoList todoList={todoList} style={{marginBottom:10}} onDeleteHandler={onDeleteHandler}/>
       </View> 
     </TouchableWithoutFeedback>
   );
