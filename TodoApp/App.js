@@ -9,7 +9,6 @@ import Hr from './components/Hr';
 import ListItem from './components/ListItem';
 import TodoList from './components/TodoList';
 import TodoInput from './components/TodoInput';
-import storage from './utils/Storage';
 
 const todosName = "todoList";
 
