@@ -28,14 +28,14 @@ const styles = StyleSheet.create({
     display:"flex",
     position:"absolute",
     color:"blue",
-    fontSize:12,
+    fontSize:13,
     fontStyle:"italic",
     fontWeight:"bold",
     left:-10,
     top:-15
   },
   todo: {
-    color:"#31e89c",
+    color:"#0feed3",
     fontSize:17,
     fontStyle:"italic",
     fontWeight:"bold"

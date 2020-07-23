@@ -28,12 +28,12 @@ export const MyDate = (props) => {
   };
 
   return (
-    <View>
-      <View>
-        <Button onPress={showDatepicker} title="Show date picker!" />
+    <View style={{flexDirection:"row",width:"100%",alignItems:"center",justifyContent:"space-around"}}>
+      <View style={{width:"40%"}} >
+        <Button onPress={showDatepicker} title="Select Date" />
       </View>
-      <View>
-        <Button onPress={showTimepicker} title="Show time picker!" />
+      <View style={{width:"40%"}}>
+        <Button onPress={showTimepicker} title="Select Time" />
       </View>
       {show && (
         <DateTimePicker

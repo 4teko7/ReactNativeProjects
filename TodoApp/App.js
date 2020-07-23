@@ -48,7 +48,7 @@ export default function App() {
   
 
   const addTodoHandler = async (enteredTodo,setEnteredTodo,tmpTodoDate) => {
-    const todoDate = tmpTodoDate.toString().substring(0,tmpTodoDate.toString().indexOf(" G"));
+    const todoDate = tmpTodoDate.toString().substring(0,tmpTodoDate.toString().indexOf(":",tmpTodoDate.toString().indexOf(":")+1));
       try {
         const todos = [...todoList,{key: new Date().getTime(), todo: enteredTodo, date: todoDate}]
         setEnteredTodo("")

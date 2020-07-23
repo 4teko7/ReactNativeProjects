@@ -18,9 +18,6 @@ const TodoInput = props => {
 
     const assignTodoDate = (tmpTodoDate) => {
         setTodoDate(tmpTodoDate);
-        // todoDate.current = tmpTodoDate
-        console.log("tmpTodoDate : ",tmpTodoDate.toString());
-        console.log("TODODATE : ",todoDate.current.toString());
     }
     return (
         <View style={{width:"100%"}}>
@@ -31,7 +28,7 @@ const TodoInput = props => {
                     <TextInput
                         multiline={true}
                         numberOfLines={4}
-                        placeholder={"Add Goal"}
+                        placeholder={"Add Your Goal..."}
                         placeholderTextColor={"green"}
                         onChangeText={todoInputHandler}
                         value={enteredTodo}
