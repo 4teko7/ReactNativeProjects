@@ -3,7 +3,7 @@ import { View, Text, StyleSheet } from 'react-native';
 
 const Hr = props => {
     return (
-        <View style={styles.hrView}>
+        <View style={{...styles.hrView,...props.hrView}}>
             <Text style={{...styles.hrText,...props.style}}></Text>
         </View>
     );

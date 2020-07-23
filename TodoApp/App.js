@@ -27,10 +27,16 @@ export default function App() {
       
    
       <View style={styles.screen}>
-        <MyTextInput textInput={<TextInput placeholder={"Add Goal"} onChangeText={todoInputHandler} value={enteredTodo} style={{textAlign:"center"}} />} style={{marginTop:30}}/>
-        <Hr style={{marginBottom:10}}/>
-        <View style={{flexDirection:"row",justifyContent:"space-around"}}>
-          <MyButton button={<Button title="Add" color="red" onPress={addTodoHandler}/>} style={{width:"40%",margin:10}} />
+        
+        <View style={{flexDirection:"row",justifyContent:"space-around",marginTop:30}}>
+          <MyTextInput textInput={
+          (
+          <View style={{paddingHorizontal:10,width:"100%",marginBottom:15}}>
+            <TextInput placeholder={"Add Goal"} onChangeText={todoInputHandler} value={enteredTodo} style={{textAlign:"center",paddingTop:10}} />
+            <Hr hrView={{}} style={{width:"100%",borderBottomWidth:2}}/>
+          </View>)
+          } style={{flex:4}}/>
+          <MyButton button={<Button title="Add" color="red" onPress={addTodoHandler}/>} style={{width:"40%",margin:10,flex:1}} />
         </View>
         <ScrollView>
             <TodoList todoList={todoList} />
