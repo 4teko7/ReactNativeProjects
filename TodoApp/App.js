@@ -98,7 +98,11 @@ export default function App() {
   }
 
   const onAddTodoScreenHandler = () =>{
+    if(isTodoInputVisible){
+      setEnteredTodo("");
+    }
     setIsTodoInputVisible(!isTodoInputVisible);
+    setTodo({});
   }
 
   useEffect(() => {

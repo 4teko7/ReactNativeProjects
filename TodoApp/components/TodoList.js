@@ -41,8 +41,8 @@ const styles = StyleSheet.create({
     fontWeight:"bold"
   },
   todo: {
-    color:"#0feed3",
-    fontSize:17,
+    color:"#66ccff",
+    fontSize:19,
   }
     
 });
