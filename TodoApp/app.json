@@ -7,9 +7,9 @@
     "icon": "./assets/tic.png",
     "sdkVersion":"38.0.0",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/createdByTic.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#99ff66"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
@@ -23,7 +23,7 @@
       "buildNumber": "1.0.0"
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "./assets/tic.png"
     },
     "android": {
       "package": "com.bilaltekin.todoapp",
