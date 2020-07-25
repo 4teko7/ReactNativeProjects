@@ -21,6 +21,7 @@ import TodoList from './components/TodoList';
 import TodoInput from './components/TodoInput';
 import Footer from './components/Footer';
 import loadFonts from './util/loadFonts';
+import MyTitle from './components/styledComponents/MyTitle';
 
 const todosName = "todoList";
 

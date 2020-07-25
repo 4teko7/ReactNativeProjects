@@ -3,6 +3,8 @@ import { View, Text, StyleSheet,Button,FlatList, Touchable, TouchableOpacity } f
 
 //Components
 import ListItem from './ListItem';
+import MyBodyText from './styledComponents/MyBodyText';
+
 
 const TodoList = props => {
     const {todoList,onDeleteHandler,onEditHandler} = props;
@@ -13,7 +15,7 @@ const TodoList = props => {
             <ListItem viewStyle={{padding:20}}>
               <View style={{flexDirection:"row"}}>
                 <View style={styles.date}><Text>{itemData.item.date}</Text></View>
-                <View style={{width:"85%"}}><Text style={styles.todo}>{itemData.item.todo}</Text></View>
+                <View style={{width:"85%"}}><MyBodyText style={styles.todo}>{itemData.item.todo}</MyBodyText></View>
                 <View style={{right:20,top:-5,position:"absolute"}}><Button title="E" onPress={onEditHandler.bind(this,itemData.item.key)} /></View>
                 <View style={{right:-10,top:-5,position:"absolute"}}><Button title="X" color={"red"} onPress={onDeleteHandler.bind(this,itemData.item.key)} /></View>
               </View>
@@ -38,7 +40,6 @@ const styles = StyleSheet.create({
   todo: {
     color:"#0feed3",
     fontSize:17,
-    fontFamily:"Courgette"
   }
     
 });
