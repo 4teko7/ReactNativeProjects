@@ -18,7 +18,7 @@ export class MyFooter extends Component {
     render() {
         const title = name + " - " + desc;
         return (
-            <View style={{...styles.screen, position:"absolute",bottom:10,width:"100%"}} >
+            <View style={{...styles.screen,...this.props.grandParentView}} >
                 <Card style={styles.card}>
                     <MyTitle style={styles.title} title={title} />
                 </Card>
@@ -30,12 +30,16 @@ export class MyFooter extends Component {
 const styles = StyleSheet.create({
     screen: {
         alignItems:"center",
-        justifyContent:"center"
-        
+        justifyContent:"center",
+        position:"absolute",
+        bottom:5,
+        width:"100%"
     },
     card: {
         width:"90%",
         elevation:20,
+        height:"70%",
+        justifyContent:"center"
     },
     title: {
         fontFamily:"PlayfairDisplay"

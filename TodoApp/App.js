@@ -67,6 +67,7 @@ export default function App() {
   }
 
   const addTodoHandler = async (enteredTodo,setEnteredTodo,tmpTodoDate) => {
+    tmpTodoDate = tmpTodoDate ? tmpTodoDate : new Date();
     const index = tmpTodoDate.toString().indexOf(":",tmpTodoDate.toString().indexOf(":")+1);
     const todoDate = tmpTodoDate.toString().substring(0,index !== -1 ? index : tmpTodoDate.length );
       try {
@@ -87,6 +88,7 @@ export default function App() {
         setEnteredTodo(tmpTodo.todo);
       }
     });
+    setIsTodoInputVisible(true);
   }
 
   const onDeleteHandler = todoId => {
@@ -120,7 +122,7 @@ export default function App() {
                 setEnteredTodo={setEnteredTodo}
                 dateOfEditedTodo={todo.date}
                 onAddTodoScreenHandler={onAddTodoScreenHandler}
-                grandParent={{marginVertical:15}}
+                grandParentView={{marginVertical:15}}
               />
               :
               // <Button title="Add Todo" color="red" onPress={()=>{}}/>
@@ -129,8 +131,6 @@ export default function App() {
               </TouchableOpacity>
             }
             <TodoList todoList={todoList} style={{marginBottom:10}} onDeleteHandler={onDeleteHandler} onEditHandler={onEditHandler} />
-            <View style={{marginBottom:55}}></View>
-            <Footer />
         </View> 
         :
         <ActivityIndicator style={styles.activityIndicator} size="large"  />

@@ -9,9 +9,10 @@ import MyDate from './MyDate';
 
 const TodoInput = props => {
     const { addTodoHandler,enteredTodo,setEnteredTodo,dateOfEditedTodo,onAddTodoScreenHandler } = props;
-
-    const [todoDate, setTodoDate] = useState("");
+    
+    const [todoDate, setTodoDate] = useState(new Date(1598051730000));
     // const todoDate = useRef("")
+
     const todoInputHandler = enteredText => {
         setEnteredTodo(enteredText);
     }
@@ -21,7 +22,7 @@ const TodoInput = props => {
     }
 
     return (
-        <View style={{width:"100%",...props.grandParent}}>
+        <View style={{width:"100%",...props.grandParentView}}>
             <View style={{justifyContent:"space-around",width:"100%"}}>
                 {/* <View style={{right:5,top:5,position:"absolute",width:"6%"}}><Button title="X" color={"red"}  /></View> */}
                 <MyDate todoDate={assignTodoDate} dateOfEditedTodo={dateOfEditedTodo}/>
