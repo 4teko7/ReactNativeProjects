@@ -112,7 +112,7 @@ export default function App() {
         dataLoaded
         ?
         <View style={styles.screen}>
-          <Header title={"Todo App"} viewStyle={{height:60,paddingTop:0,backgroundColor:"#0f76ee"}} textStyle={{fontFamily:"Courgette"}} />
+          <Header title={"Todo App"} viewStyle={{height:60,paddingTop:0,backgroundColor:"#99ff66"}} textStyle={{fontFamily:"Courgette"}} />
             {
               isTodoInputVisible
               ?
@@ -127,7 +127,7 @@ export default function App() {
               :
               // <Button title="Add Todo" color="red" onPress={()=>{}}/>
               <TouchableOpacity onPress={onAddTodoScreenHandler} activeOpacity={0.3}>
-                <MyButtonTwo title="Add Todo" grandParentView={{margin:10}} textView={{fontSize:30,marginTop:-5}} />
+                <MyButtonTwo title="Add Todo" grandParentViewStyle={{margin:10}} parentViewStyle={{backgroundColor:"#cc6600"}} textViewStyle={{fontSize:30,marginTop:-5}} />
               </TouchableOpacity>
             }
             <TodoList todoList={todoList} style={{marginBottom:10}} onDeleteHandler={onDeleteHandler} onEditHandler={onEditHandler} />
@@ -142,7 +142,8 @@ export default function App() {
 const styles = StyleSheet.create({
   screen: {
     width:"100%",
-    height:"100%"
+    height:"100%",
+    backgroundColor:"#99ff66"
     
   },
   activityIndicator: {

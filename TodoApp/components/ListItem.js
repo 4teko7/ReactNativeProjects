@@ -16,12 +16,12 @@ const ListItem = props => {
 
 const styles = StyleSheet.create({
     view: {
-        backgroundColor:"grey",
+        backgroundColor:"#996633",
         borderRadius:10,
         marginVertical:3,
         padding:10,
         maxWidth:"90%",
-        width:"100%"
+        width:"100%",
     },
     text: {
         borderBottomWidth: 1,

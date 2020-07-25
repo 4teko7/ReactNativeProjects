@@ -3,16 +3,16 @@ import {View,Text,StyleSheet,Button} from 'react-native';
 
 const MyButtonTwo = props => {
     return (
-        <View style={{...styles.grandParentView,...props.grandParentView}}>
+        <View style={{...styles.grandParentViewStyle,...props.grandParentViewStyle}}>
             <View style={{...styles.parentViewStyle,...props.parentViewStyle}}>
-                <Text style={{...styles.textView,...props.textView}}>{props.title}</Text>
+                <Text style={{...styles.textViewStyle,...props.textViewStyle}}>{props.title}</Text>
             </View>
         </View>
     );
 }
 
 const styles = StyleSheet.create({
-    grandParentView:{
+    grandParentViewStyle:{
         flexDirection:"row",
         justifyContent:"center",
         alignItems:"center"
@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
         backgroundColor:"green",
         borderRadius:20,
     },
-    textView: {
+    textViewStyle: {
         color:"black",
         fontSize:18,
         fontFamily:"PlayfairDisplayItalic"

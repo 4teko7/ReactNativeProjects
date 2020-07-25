@@ -14,7 +14,7 @@ const TodoList = props => {
           // <TouchableOpacity onPress={onDeleteHandler.bind(this,item.key)}>
             <ListItem viewStyle={{padding:20}}>
               <View style={{flexDirection:"row"}}>
-                <View style={styles.date}><Text>{itemData.item.date}</Text></View>
+                <View style={styles.dateView}><Text style={styles.date}>{itemData.item.date}</Text></View>
                 <View style={{width:"85%"}}><MyBodyText style={styles.todo}>{itemData.item.todo}</MyBodyText></View>
                 <View style={{right:20,top:-5,position:"absolute"}}><Button title="E" onPress={onEditHandler.bind(this,itemData.item.key)} /></View>
                 <View style={{right:-10,top:-5,position:"absolute"}}><Button title="X" color={"red"} onPress={onDeleteHandler.bind(this,itemData.item.key)} /></View>
@@ -27,7 +27,7 @@ const TodoList = props => {
 
 
 const styles = StyleSheet.create({
-    date: {
+  dateView: {
     display:"flex",
     position:"absolute",
     color:"blue",
@@ -35,7 +35,10 @@ const styles = StyleSheet.create({
     fontStyle:"italic",
     fontWeight:"bold",
     left:-10,
-    top:-15
+    top:-18
+  },
+  date: {
+    fontWeight:"bold"
   },
   todo: {
     color:"#0feed3",

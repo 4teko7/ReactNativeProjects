@@ -36,10 +36,10 @@ export const MyDate = (props) => {
   return (
     <View style={{flexDirection:"row",width:"100%",alignItems:"center",justifyContent:"space-around"}}>
       <View style={{width:"40%"}} >
-        <Button onPress={showDatepicker} title="Select Date" />
+        <Button onPress={showDatepicker} color="#cc6600" title="Select Date" />
       </View>
       <View style={{width:"40%"}}>
-        <Button onPress={showTimepicker} title="Select Time" />
+        <Button onPress={showTimepicker} color="#cc6600" title="Select Time" />
       </View>
       {show && (
         <DateTimePicker
