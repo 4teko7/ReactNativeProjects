@@ -131,7 +131,7 @@ export default function App() {
               :
               // <Button title="Add Todo" color="red" onPress={()=>{}}/>
               <TouchableOpacity onPress={onAddTodoScreenHandler} activeOpacity={0.3}>
-                <MyButtonTwo title="Add Todo" grandParentViewStyle={{margin:10}} parentViewStyle={{backgroundColor:"#cc6600"}} textViewStyle={{fontSize:30,marginTop:-5}} />
+                <MyButtonTwo title="Add Todo" grandParentViewStyle={{margin:10, marginTop:3}} parentViewStyle={{backgroundColor:"#cc6600"}} textViewStyle={{fontSize:30,marginTop:-5}} />
               </TouchableOpacity>
             }
             <TodoList todoList={todoList} style={{marginBottom:10}} onDeleteHandler={onDeleteHandler} onEditHandler={onEditHandler} />
