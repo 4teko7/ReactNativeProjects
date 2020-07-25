@@ -8,7 +8,7 @@ import Hr from './Hr';
 import MyDate from './MyDate';
 
 const TodoInput = props => {
-    const { addTodoHandler,enteredTodo,setEnteredTodo,dateOfEditedTodo } = props;
+    const { addTodoHandler,enteredTodo,setEnteredTodo,dateOfEditedTodo,onAddTodoScreenHandler } = props;
 
     const [todoDate, setTodoDate] = useState("");
     // const todoDate = useRef("")
@@ -21,30 +21,38 @@ const TodoInput = props => {
     }
 
     return (
-        <View style={{width:"100%"}}>
-            <View style={{justifyContent:"space-around",marginTop:30,width:"100%"}}>
-            <MyTextInput textInput={
-                (
-                <View style={{paddingHorizontal:10,width:"100%",marginBottom:15}}>
-                    <TextInput
-                        multiline={true}
-                        numberOfLines={4}
-                        placeholder={"Add Your Goal..."}
-                        placeholderTextColor={"green"}
-                        onChangeText={todoInputHandler}
-                        value={enteredTodo}
-                        style={{textAlign:"center",paddingTop:10,fontSize:18,textTransform:"none"}}
-                    />
-                    <Hr hrView={{}} style={{width:"100%",borderBottomWidth:2}}/>
+        <View style={{width:"100%",...props.grandParent}}>
+            <View style={{justifyContent:"space-around",width:"100%"}}>
+                {/* <View style={{right:5,top:5,position:"absolute",width:"6%"}}><Button title="X" color={"red"}  /></View> */}
+                <MyDate todoDate={assignTodoDate} dateOfEditedTodo={dateOfEditedTodo}/>
+                <MyTextInput textInput={
+                    (
+                    <View style={{paddingHorizontal:10,width:"100%",paddingBottom:15}}>
+                        <TextInput
+                            multiline={true}
+                            numberOfLines={4}
+                            placeholder={"Add Your Goal..."}
+                            placeholderTextColor={"green"}
+                            onChangeText={todoInputHandler}
+                            value={enteredTodo}
+                            style={{textAlign:"center",paddingTop:10,fontSize:18,textTransform:"none",paddingBottom:20}}
+                        />
+                        <Hr style={{width:"100%",borderBottomWidth:2}}/>
+                    </View>
+                    )
+                    }
+                />
+            </View>
+
+
+            <View style={{flexDirection:"row",width:"100%",alignItems:"center",justifyContent:"space-around"}}>
+                <View style={{width:"40%"}} >
+                    <Button title="Save" color="green" onPress={addTodoHandler.bind(this,enteredTodo,setEnteredTodo,todoDate)} />
                 </View>
-                )
-                }
-            />
-            <MyDate todoDate={assignTodoDate} dateOfEditedTodo={dateOfEditedTodo}/>
-        </View>
-        <View style={{flexDirection:"column",justifyContent:"center",alignItems:"center"}}>
-            <MyButton button={<Button title="Save" color="red" onPress={addTodoHandler.bind(this,enteredTodo,setEnteredTodo,todoDate)} />} style={{width:"40%",margin:10}} />
-        </View>
+                <View style={{width:"40%"}}>
+                    <Button title="Cancel" color="red" onPress={onAddTodoScreenHandler} />
+                </View>
+            </View>
         </View>
 
     )

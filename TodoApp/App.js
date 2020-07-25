@@ -8,6 +8,7 @@ import {
   TextInput,
   Keyboard,
   TouchableWithoutFeedback,
+  TouchableOpacity,
   AsyncStorage,
   ActivityIndicator
 } from 'react-native';
@@ -20,8 +21,10 @@ import ListItem from './components/ListItem';
 import TodoList from './components/TodoList';
 import TodoInput from './components/TodoInput';
 import Footer from './components/Footer';
+import Header from './components/Header';
 import loadFonts from './util/loadFonts';
 import MyTitle from './components/styledComponents/MyTitle';
+import MyButtonTwo from './components/styledComponents/MyButtonTwo';
 
 const todosName = "todoList";
 
@@ -33,7 +36,7 @@ export default function App() {
   const [enteredTodo, setEnteredTodo] = useState("");
   const [todo,setTodo] = useState({})
   const [dataLoaded,setDataLoaded] = useState(false);
-  
+  const [isTodoInputVisible,setIsTodoInputVisible] = useState(false);
 
   const removeTodoData = async (name) => {
     try {
@@ -92,6 +95,10 @@ export default function App() {
     storeTodoData(todosName,filteredTodoList);
   }
 
+  const onAddTodoScreenHandler = () =>{
+    setIsTodoInputVisible(!isTodoInputVisible);
+  }
+
   useEffect(() => {
     getTodoData(todosName);
     loadFonts(setDataLoaded);
@@ -103,7 +110,24 @@ export default function App() {
         dataLoaded
         ?
         <View style={styles.screen}>
-            <TodoInput addTodoHandler={addTodoHandler} enteredTodo={enteredTodo}  setEnteredTodo={setEnteredTodo} dateOfEditedTodo={todo.date}/>
+          <Header title={"Todo App"} viewStyle={{height:60,paddingTop:0,backgroundColor:"#0f76ee"}} textStyle={{fontFamily:"Courgette"}} />
+            {
+              isTodoInputVisible
+              ?
+              <TodoInput
+                addTodoHandler={addTodoHandler}
+                enteredTodo={enteredTodo}
+                setEnteredTodo={setEnteredTodo}
+                dateOfEditedTodo={todo.date}
+                onAddTodoScreenHandler={onAddTodoScreenHandler}
+                grandParent={{marginVertical:15}}
+              />
+              :
+              // <Button title="Add Todo" color="red" onPress={()=>{}}/>
+              <TouchableOpacity onPress={onAddTodoScreenHandler} activeOpacity={0.3}>
+                <MyButtonTwo title="Add Todo" grandParentView={{margin:10}} textView={{fontSize:30,marginTop:-5}} />
+              </TouchableOpacity>
+            }
             <TodoList todoList={todoList} style={{marginBottom:10}} onDeleteHandler={onDeleteHandler} onEditHandler={onEditHandler} />
             <View style={{marginBottom:55}}></View>
             <Footer />
