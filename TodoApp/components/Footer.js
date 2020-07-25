@@ -20,7 +20,7 @@ export class MyFooter extends Component {
         return (
             <View style={{...styles.screen, position:"absolute",bottom:10,width:"100%"}} >
                 <Card style={styles.card}>
-                    <MyTitle title={title} />
+                    <MyTitle style={styles.title} title={title} />
                 </Card>
             </View>
         );
@@ -36,6 +36,9 @@ const styles = StyleSheet.create({
     card: {
         width:"90%",
         elevation:20,
+    },
+    title: {
+        fontFamily:"PlayfairDisplay"
     }
 });
 

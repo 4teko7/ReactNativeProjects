@@ -11,9 +11,9 @@ const TodoList = props => {
           (
           // <TouchableOpacity onPress={onDeleteHandler.bind(this,item.key)}>
             <ListItem viewStyle={{padding:20}}>
-              <View style={{flexDirection:"row",justifyContent:"space-around"}}>
+              <View style={{flexDirection:"row"}}>
                 <View style={styles.date}><Text>{itemData.item.date}</Text></View>
-                <View style={{maxWidth:"78%"}}><Text style={styles.todo}>{itemData.item.todo}</Text></View>
+                <View style={{width:"85%"}}><Text style={styles.todo}>{itemData.item.todo}</Text></View>
                 <View style={{right:20,top:-5,position:"absolute"}}><Button title="E" onPress={onEditHandler.bind(this,itemData.item.key)} /></View>
                 <View style={{right:-10,top:-5,position:"absolute"}}><Button title="X" color={"red"} onPress={onDeleteHandler.bind(this,itemData.item.key)} /></View>
               </View>
@@ -38,8 +38,7 @@ const styles = StyleSheet.create({
   todo: {
     color:"#0feed3",
     fontSize:17,
-    fontStyle:"italic",
-    fontWeight:"bold"
+    fontFamily:"Courgette"
   }
     
 });

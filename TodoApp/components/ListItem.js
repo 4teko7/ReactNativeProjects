@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
         borderRadius:10,
         marginVertical:3,
         padding:10,
-        maxWidth:"80%",
+        maxWidth:"90%",
         width:"100%"
     },
     text: {
