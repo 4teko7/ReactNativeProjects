@@ -4,6 +4,14 @@ import { StyleSheet, Text, View } from 'react-native';
 import loadFonts from './util/loadFonts';
 import {AppLoading} from 'expo';
 
+//Components
+import CategoriesScreen from "./screens/CategoriesScreen";
+import CategoryMetalsScreen from "./screens/CategoryMetalsScreen";
+import FavoritesScreen from "./screens/FavoritesScreen";
+import MealDetailScreen from "./screens/MealDetailScreen";
+import FiltersScreen from "./screens/FiltersScreen";
+
+
 export default function App() {
 
   const [fontLoaded,setFontLoaded] = useState(false);
@@ -23,10 +31,11 @@ export default function App() {
     return (
       (
         <View>
-          <View style={styles.container}>
-            <Text style={{fontFamily:"Yanone"}}>Open up App.js to start working on your app!</Text>
-            <StatusBar style="auto" />
-          </View>
+          <CategoriesScreen />
+          <CategoryMetalsScreen />
+          <FavoritesScreen />
+          <MealDetailScreen />
+          <FiltersScreen />
         </View>
       )
     );
