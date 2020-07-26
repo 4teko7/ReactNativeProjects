@@ -1,5 +1,12 @@
-import React from 'react';
-import { View, Text, StyleSheet,Button,FlatList, Touchable, TouchableOpacity } from 'react-native';
+import React,{useState} from 'react';
+import { View,
+  Text,
+  StyleSheet,
+  Button,
+  FlatList,
+  Touchable,
+  TouchableOpacity
+} from 'react-native';
 
 //Components
 import ListItem from './ListItem';
@@ -54,13 +61,16 @@ const converDateTrToEng = todo =>{
 
 const TodoList = props => {
     const {todoList,onDeleteHandler,onEditHandler} = props;
-    if(global.language.language === "tr"){
+    const [todoLan,setTodoLan] = useState("english");
+    if(global.language.language === "tr" && todoLan !== "tr"){
       todoList.forEach(todo => {
         converDateEngToTr(todo);
+        setTodoLan("tr")
       })
-    }else if(global.language.language === "eng"){
+    }else if(global.language.language === "eng" && todoLan !== "eng"){
       todoList.forEach(todo => {
         converDateTrToEng(todo);
+        setTodoLan("eng")
       })
     }
     return (
