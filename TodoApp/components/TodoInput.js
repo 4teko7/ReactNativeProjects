@@ -48,10 +48,10 @@ const TodoInput = props => {
 
             <View style={{flexDirection:"row",width:"100%",alignItems:"center",justifyContent:"space-around"}}>
                 <View style={{width:"40%"}} >
-                    <Button title="Save" color="green" onPress={addTodoHandler.bind(this,enteredTodo,setEnteredTodo,todoDate)} />
+                    <Button title={global.language.save} color="green" onPress={addTodoHandler.bind(this,enteredTodo,setEnteredTodo,todoDate)} />
                 </View>
                 <View style={{width:"40%"}}>
-                    <Button title="Cancel" color="red" onPress={onAddTodoScreenHandler} />
+                    <Button title={global.language.cancel} color="red" onPress={onAddTodoScreenHandler} />
                 </View>
             </View>
         </View>

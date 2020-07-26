@@ -1,5 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React,{useState,useEffect,useRef} from 'react';
+
 import {
   StyleSheet,
   Text,
@@ -125,7 +126,7 @@ export default function App() {
         dataLoaded
         ?
         <View style={styles.screen}>
-          <Header title={"Todo App"} viewStyle={{height:60,paddingTop:0,backgroundColor:"#99ff66"}} textStyle={{fontFamily:"Courgette"}} />
+          <Header title={global.language.todoApp} viewStyle={{height:60,paddingTop:0,backgroundColor:"#99ff66"}} textStyle={{fontFamily:"Courgette"}} />
             {
               isTodoInputVisible
               ?

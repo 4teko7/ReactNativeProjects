@@ -1,6 +1,7 @@
 import React, {useState,useEffect} from 'react';
 import {View,Text, Button, Platform} from 'react-native';
-import DateTimePicker from '@react-native-community/datetimepicker';
+import RNDateTimePicker from '@react-native-community/datetimepicker';
+
 
 export const MyDate = (props) => {
   const { dateOfEditedTodo } = props;
@@ -36,13 +37,15 @@ export const MyDate = (props) => {
   return (
     <View style={{flexDirection:"row",width:"100%",alignItems:"center",justifyContent:"space-around"}}>
       <View style={{width:"40%"}} >
-        <Button onPress={showDatepicker} color="#cc6600" title="Select Date" />
+        <Button onPress={showDatepicker} color="#cc6600" title={global.language.selectDate} />
       </View>
       <View style={{width:"40%"}}>
-        <Button onPress={showTimepicker} color="#cc6600" title="Select Time" />
+        <Button onPress={showTimepicker} color="#cc6600" title={global.language.selectTime} />
       </View>
       {show && (
-        <DateTimePicker
+        <RNDateTimePicker
+          mode='datetime'
+          locale="tr"
           testID="dateTimePicker"
           value={date}
           mode={mode}
