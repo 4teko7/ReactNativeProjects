@@ -5,9 +5,9 @@ import {
     StyleSheet,
     Image
 } from 'react-native';
+console.log(todosName)
 
 const Header = props =>{
-
     return (
         <View style= {{...styles.header,...props.viewStyle}}>
             <Text style={{...styles.headerTitle,...props.textStyle}}>

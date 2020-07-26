@@ -10,7 +10,8 @@ import {
   TouchableWithoutFeedback,
   TouchableOpacity,
   AsyncStorage,
-  ActivityIndicator
+  ActivityIndicator,
+  Image
 } from 'react-native';
 
 //Components
@@ -26,9 +27,12 @@ import loadFonts from './util/loadFonts';
 import MyTitle from './components/styledComponents/MyTitle';
 import MyButtonTwo from './components/styledComponents/MyButtonTwo';
 
+
+//Constants
+import {turkish,english} from './constants/language';
+
 const todosName = "todoList";
-
-
+global.language = english;
 
 export default function App() {
   let id = 0;
@@ -37,6 +41,7 @@ export default function App() {
   const [todo,setTodo] = useState({})
   const [dataLoaded,setDataLoaded] = useState(false);
   const [isTodoInputVisible,setIsTodoInputVisible] = useState(false);
+  const [language,setLanguage] = useState("english");
 
   const removeTodoData = async (name) => {
     try {
@@ -105,6 +110,10 @@ export default function App() {
     setTodo({});
   }
 
+  const onlanguageHandler = () => {
+    setLanguage(language === "english" ? "turkish" : "english");
+    global.language = language === "english" ? turkish : english;
+  }
   useEffect(() => {
     getTodoData(todosName);
     loadFonts(setDataLoaded);
@@ -129,12 +138,18 @@ export default function App() {
                 grandParentView={{marginVertical:15}}
               />
               :
-              // <Button title="Add Todo" color="red" onPress={()=>{}}/>
-              <TouchableOpacity onPress={onAddTodoScreenHandler} activeOpacity={0.3}>
-                <MyButtonTwo title="Add Todo" grandParentViewStyle={{margin:10, marginTop:3}} parentViewStyle={{backgroundColor:"#cc6600"}} textViewStyle={{fontSize:30,marginTop:-5}} />
+              <View style={{flexDirection:"row"}}>
+              <TouchableOpacity onPress={onlanguageHandler} activeOpacity={0.3} style={{flex:1,zIndex:2}}>
+                <Image source={require('./assets/images/engTr.png')} style={styles.lanImage} />
               </TouchableOpacity>
+
+
+             <TouchableOpacity onPress={onAddTodoScreenHandler} activeOpacity={0.3} style={{flex:5,marginLeft:-55,zIndex:1}}>
+                <MyButtonTwo title={global.language.addTodo} grandParentViewStyle={{margin:10, marginTop:3}} parentViewStyle={{backgroundColor:"#cc6600"}} textViewStyle={{fontSize:30,marginTop:-5}} />
+            </TouchableOpacity> 
+              </View>
             }
-            <TodoList todoList={todoList} style={{marginBottom:10}} onDeleteHandler={onDeleteHandler} onEditHandler={onEditHandler} />
+           <TodoList todoList={todoList} style={{marginBottom:10}} onDeleteHandler={onDeleteHandler} onEditHandler={onEditHandler} />
         </View> 
         :
         <ActivityIndicator style={styles.activityIndicator} size="large"  />
@@ -158,5 +173,10 @@ const styles = StyleSheet.create({
     bottom: 0,
     alignItems: 'center',
     justifyContent: 'center'
+  },
+  lanImage: {
+    width:55,
+    height:55,
+    left:10
   }
 });
