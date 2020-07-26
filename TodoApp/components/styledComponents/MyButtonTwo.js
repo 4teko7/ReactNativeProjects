@@ -1,32 +1,46 @@
 import React from 'react';
-import {View,Text,StyleSheet,Button} from 'react-native';
+import {View,
+    Text,
+    StyleSheet,
+    Button,
+    TouchableOpacity
+} from 'react-native';
 
 const MyButtonTwo = props => {
+    const {onAddTodoScreenHandler} = props;
     return (
         <View style={{...styles.grandParentViewStyle,...props.grandParentViewStyle}}>
-            <View style={{...styles.parentViewStyle,...props.parentViewStyle}}>
-                <Text style={{...styles.textViewStyle,...props.textViewStyle}}>{props.title}</Text>
-            </View>
+            <TouchableOpacity onPress={onAddTodoScreenHandler} activeOpacity={0.3} style={{...styles.touchable,...props.touchable}}>
+                <View style={{...styles.parentViewStyle,...props.parentViewStyle}}>
+                    <Text style={{...styles.textViewStyle,...props.textViewStyle}}>{props.title}</Text>
+                </View>
+            </TouchableOpacity> 
         </View>
+
     );
 }
 
 const styles = StyleSheet.create({
     grandParentViewStyle:{
         flexDirection:"row",
+        zIndex:1
+    },
+    touchable:{
+        width:"100%",
         justifyContent:"center",
         alignItems:"center"
+
     },
     parentViewStyle: {
-        flexDirection:"row",
-        justifyContent:"center",
-        alignItems:"center",
-        width:"60%",
-        height:"110%",
         padding:0,
-        margin:8,
         backgroundColor:"green",
         borderRadius:20,
+        height:60,
+        width:"60%",
+        justifyContent:"center",
+        alignItems:"center",
+        zIndex:1
+        
     },
     textViewStyle: {
         color:"black",

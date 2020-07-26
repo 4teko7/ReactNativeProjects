@@ -5,7 +5,6 @@ import {
     StyleSheet,
     Image
 } from 'react-native';
-console.log(todosName)
 
 const Header = props =>{
     return (

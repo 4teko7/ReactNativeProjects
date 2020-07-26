@@ -139,14 +139,16 @@ export default function App() {
               />
               :
               <View style={{flexDirection:"row"}}>
-              <TouchableOpacity onPress={onlanguageHandler} activeOpacity={0.3} style={{flex:1,zIndex:2}}>
+              <TouchableOpacity onPress={onlanguageHandler} activeOpacity={0.3} style={{width:"20%",zIndex:2}}>
                 <Image source={require('./assets/images/engTr.png')} style={styles.lanImage} />
               </TouchableOpacity>
 
-
-             <TouchableOpacity onPress={onAddTodoScreenHandler} activeOpacity={0.3} style={{flex:5,marginLeft:-55,zIndex:1}}>
-                <MyButtonTwo title={global.language.addTodo} grandParentViewStyle={{margin:10, marginTop:3}} parentViewStyle={{backgroundColor:"#cc6600"}} textViewStyle={{fontSize:30,marginTop:-5}} />
-            </TouchableOpacity> 
+                <MyButtonTwo title={global.language.addTodo}
+                  onAddTodoScreenHandler={onAddTodoScreenHandler}
+                  grandParentViewStyle={{marginVertical:10, marginTop:3,left:"-20%"}}
+                  parentViewStyle={{backgroundColor:"#cc6600"}}
+                  textViewStyle={{fontSize:30,marginTop:-5}}
+                />
               </View>
             }
            <TodoList todoList={todoList} style={{marginBottom:10}} onDeleteHandler={onDeleteHandler} onEditHandler={onEditHandler} />
