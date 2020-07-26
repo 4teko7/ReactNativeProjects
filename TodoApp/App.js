@@ -168,7 +168,13 @@ export default function App() {
                 />
               </View>
             }
-           <TodoList todoList={todoList} style={{marginBottom:10}} onDeleteHandler={onDeleteHandler} onEditHandler={onEditHandler} />
+           <TodoList
+           todoList={todoList}
+           style={{marginBottom:10}}
+           onDeleteHandler={onDeleteHandler}
+           onEditHandler={onEditHandler}
+           language={global.language.language}
+           />
         </View> 
         :
         <ActivityIndicator style={styles.activityIndicator} size="large"  />

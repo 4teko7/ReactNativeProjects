@@ -64,17 +64,14 @@ const converDateTrToEng = todo =>{
 }
 
 const TodoList = props => {
-    const {todoList,onDeleteHandler,onEditHandler} = props;
-    const [todoLan,setTodoLan] = useState("english");
-    if(global.language.language === "turkish" && todoLan !== "turkish"){
+    const {todoList,onDeleteHandler,onEditHandler,language} = props;
+    if(global.language.language === "turkish"){
       todoList.forEach(todo => {
         converDateEngToTr(todo);
-        setTodoLan("turkish")
       })
-    }else if(global.language.language === "english" && todoLan !== "english"){
+    }else if(global.language.language === "english"){
       todoList.forEach(todo => {
         converDateTrToEng(todo);
-        setTodoLan("english")
       })
     }
     return (
