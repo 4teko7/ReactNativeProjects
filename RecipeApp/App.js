@@ -15,8 +15,8 @@ import FiltersScreen from "./screens/FiltersScreen";
 export default function App() {
 
   const [fontLoaded,setFontLoaded] = useState(false);
-  const componentDidMount = async () =>{
-    await loadFonts();
+  const componentDidMount =() =>{
+    return loadFonts();
   }
 
   if(!fontLoaded){
