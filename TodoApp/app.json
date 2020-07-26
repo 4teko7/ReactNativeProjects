@@ -3,8 +3,8 @@
     "name": "TodoApp",
     "slug": "TodoApp",
     "version": "1.0.1",
-    "orientation": "portrait",
-    "icon": "./assets/tic.png",
+    "orientation": "default",
+    "icon": "./assets/ticWithBackgroundColor.jpg",
     "sdkVersion":"38.0.0",
     "splash": {
       "image": "./assets/createdByTic.png",
