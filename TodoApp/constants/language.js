@@ -7,7 +7,8 @@ export const turkish = {
     "selectDate":"Tarih Seç",
     "selectTime":"Saat Seç",
     "save":"Kaydet",
-    "cancel":"İptal"
+    "cancel":"İptal",
+    "addYourGoal":"Görevini Ekle..."
 
 }
 
@@ -20,5 +21,6 @@ export const english = {
     "selectDate":"Select Date",
     "selectTime":"Select Time",
     "save":"Save",
-    "cancel":"Cancel"
+    "cancel":"Cancel",
+    "addYourGoal":"Add Your Todo..."
 }

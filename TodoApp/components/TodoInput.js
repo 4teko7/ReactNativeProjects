@@ -32,7 +32,7 @@ const TodoInput = props => {
                         <TextInput
                             multiline={true}
                             numberOfLines={4}
-                            placeholder={"Add Your Goal..."}
+                            placeholder={global.language.addYourGoal}
                             placeholderTextColor={"green"}
                             onChangeText={todoInputHandler}
                             value={enteredTodo}
