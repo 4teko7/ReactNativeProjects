@@ -1,5 +1,5 @@
 export const turkish = {
-    "language":"tr",
+    "language":"turkish",
     "todoApp":"Görevlerim",
     "hello":"merhaba",
     "addTodo":"Hedef Ekle",
@@ -13,7 +13,7 @@ export const turkish = {
 }
 
 export const english = {
-    "language":"eng",
+    "language":"english",
     "todoApp":"Todo App",
     "hello":"hello",
     "addTodo":"Add Todo",

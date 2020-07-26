@@ -33,6 +33,7 @@ import MyButtonTwo from './components/styledComponents/MyButtonTwo';
 import {turkish,english} from './constants/language';
 
 const todosName = "todoList";
+const languageName = "language";
 global.language = english;
 
 export default function App() {
@@ -44,6 +45,7 @@ export default function App() {
   const [isTodoInputVisible,setIsTodoInputVisible] = useState(false);
   const [language,setLanguage] = useState("english");
 
+  
   const removeTodoData = async (name) => {
     try {
       await AsyncStorage.removeItem(name);
@@ -53,20 +55,20 @@ export default function App() {
     }
   }
 
-  const getTodoData = async (name) => {
+  const getData = async (name) => {
     try {
       const value = await AsyncStorage.getItem(name);
       if (value !== null && value.length > 0) {
-        setTodoList(JSON.parse(value));
+        return JSON.parse(value);
       }
     } catch (error) {
       console.log(error)
     }
   };
 
-  const storeTodoData = async (name,filteredTodoList) => {
+  const storeData = async (name,data) => {
     try {
-      await AsyncStorage.setItem(name, JSON.stringify(filteredTodoList));
+      await AsyncStorage.setItem(name, JSON.stringify(data));
     } catch (error) {
       console.log(error)
     }
@@ -81,7 +83,7 @@ export default function App() {
         const todos = [{key: new Date().getTime(), todo: enteredTodo, date: todoDate},...filteredTodoList]
         setEnteredTodo("")
         setTodoList(todos);
-        storeTodoData(todosName,todos)
+        storeData(todosName,todos)
       } catch (error) {
         console.log(error) 
       }
@@ -100,7 +102,7 @@ export default function App() {
   const onDeleteHandler = todoId => {
     const filteredTodoList = todoList.filter(todo => todo.key !== todoId);
     setTodoList(filteredTodoList);
-    storeTodoData(todosName,filteredTodoList);
+    storeData(todosName,filteredTodoList);
   }
 
   const onAddTodoScreenHandler = () =>{
@@ -111,14 +113,28 @@ export default function App() {
     setTodo({});
   }
 
+  const asssignLanguageObjectComingFromStorage = (langName) =>{
+    global.language = langName === "english" ? english : turkish;
+    setLanguage(langName);
+  }
+
   const onlanguageHandler = () => {
     setLanguage(language === "english" ? "turkish" : "english");
     global.language = language === "english" ? turkish : english;
+    storeData(languageName,global.language.language);
+  }
+
+  const componentDidMount = async () => {
+    setTodoList(await getData(todosName));
+    const langName = await getData(languageName)
+    asssignLanguageObjectComingFromStorage(langName)
+    loadFonts(setDataLoaded);
   }
   useEffect(() => {
-    getTodoData(todosName);
-    loadFonts(setDataLoaded);
+    componentDidMount();
   }, [])
+
+
 
     return (
       <TouchableWithoutFeedback onPress={() => {Keyboard.dismiss();}} > 

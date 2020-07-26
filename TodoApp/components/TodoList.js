@@ -8,10 +8,13 @@ import { View,
   TouchableOpacity,
   Keyboard
 } from 'react-native';
-
+// import Ionocons from '@expo/vector-icons';
+import { Entypo } from '@expo/vector-icons'; 
+import { AntDesign } from '@expo/vector-icons'; 
 //Components
 import ListItem from './ListItem';
 import MyBodyText from './styledComponents/MyBodyText';
+import MyButton from './styledComponents/MyButton';
 
 const converDateEngToTr = todo =>{
   todo.date = todo.date.replace("Sun ","Pazar ")
@@ -63,15 +66,15 @@ const converDateTrToEng = todo =>{
 const TodoList = props => {
     const {todoList,onDeleteHandler,onEditHandler} = props;
     const [todoLan,setTodoLan] = useState("english");
-    if(global.language.language === "tr" && todoLan !== "tr"){
+    if(global.language.language === "turkish" && todoLan !== "turkish"){
       todoList.forEach(todo => {
         converDateEngToTr(todo);
-        setTodoLan("tr")
+        setTodoLan("turkish")
       })
-    }else if(global.language.language === "eng" && todoLan !== "eng"){
+    }else if(global.language.language === "english" && todoLan !== "english"){
       todoList.forEach(todo => {
         converDateTrToEng(todo);
-        setTodoLan("eng")
+        setTodoLan("english")
       })
     }
     return (
@@ -86,9 +89,15 @@ const TodoList = props => {
                 <View style={styles.dateView}><Text style={styles.date}>{itemData.item.date}</Text></View>
                 <View style={{width:"85%"}}><MyBodyText style={styles.todo}>{itemData.item.todo}</MyBodyText></View>
                 <View style={{right:20,top:-5,position:"absolute"}}>
-                  <Button title={global.language.edit} onPress={onEditHandler.bind(this,itemData.item.key)} /></View>
+                  <MyButton pressMethod={onEditHandler.bind(this,itemData.item.key)}>
+                      <Entypo name="edit" size={24} color="#ffbb00" />
+                  </MyButton>
+                </View>
                 <View style={{right:-10,top:-5,position:"absolute"}}>
-                  <Button title="X" color={"red"} onPress={onDeleteHandler.bind(this,itemData.item.key)} /></View>
+                  <MyButton pressMethod={onDeleteHandler.bind(this,itemData.item.key)}>
+                      <AntDesign name="delete" size={25} color="#fb0303" />
+                  </MyButton>
+                </View>
               </View>
             </ListItem>
           // </TouchableOpacity>

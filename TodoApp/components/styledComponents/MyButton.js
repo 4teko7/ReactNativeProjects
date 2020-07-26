@@ -1,19 +1,21 @@
 import React from 'react';
-import {View,Text,StyleSheet,Button} from 'react-native';
+import {View,Text,StyleSheet,Button, TouchableOpacity} from 'react-native';
 
 const MyButton = props => {
-    const {button} = props;
+    const {pressMethod} = props;
 
     return (
-        <View style={{...styles.buttonView,...props.style}}>
-            {button}
-        </View>
+        <TouchableOpacity onPress={pressMethod}>
+            <View style={{...styles.buttonView,...props.style}}>
+                {props.children}
+            </View>
+        </TouchableOpacity>
     );
 }
 
 const styles = StyleSheet.create({
     buttonView: {
-        width:"60%"
+        width:"100%"
     }
 });
 
