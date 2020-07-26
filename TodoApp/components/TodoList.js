@@ -5,7 +5,8 @@ import { View,
   Button,
   FlatList,
   Touchable,
-  TouchableOpacity
+  TouchableOpacity,
+  Keyboard
 } from 'react-native';
 
 //Components
@@ -74,15 +75,20 @@ const TodoList = props => {
       })
     }
     return (
-          <FlatList keyExtractor={(item,index) => item.key.toString()}  data={todoList} renderItem = {itemData =>
+          <FlatList
+          keyboardShouldPersistTaps={'handled'}
+          keyExtractor={(item,index) => item.key.toString()}
+          data={todoList} renderItem = {itemData =>
           (
           // <TouchableOpacity onPress={onDeleteHandler.bind(this,item.key)}>
             <ListItem viewStyle={{padding:20}}>
               <View style={{flexDirection:"row"}}>
                 <View style={styles.dateView}><Text style={styles.date}>{itemData.item.date}</Text></View>
                 <View style={{width:"85%"}}><MyBodyText style={styles.todo}>{itemData.item.todo}</MyBodyText></View>
-                <View style={{right:20,top:-5,position:"absolute"}}><Button title={global.language.edit} onPress={onEditHandler.bind(this,itemData.item.key)} /></View>
-                <View style={{right:-10,top:-5,position:"absolute"}}><Button title="X" color={"red"} onPress={onDeleteHandler.bind(this,itemData.item.key)} /></View>
+                <View style={{right:20,top:-5,position:"absolute"}}>
+                  <Button title={global.language.edit} onPress={onEditHandler.bind(this,itemData.item.key)} /></View>
+                <View style={{right:-10,top:-5,position:"absolute"}}>
+                  <Button title="X" color={"red"} onPress={onDeleteHandler.bind(this,itemData.item.key)} /></View>
               </View>
             </ListItem>
           // </TouchableOpacity>

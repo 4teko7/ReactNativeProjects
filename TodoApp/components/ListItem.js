@@ -1,9 +1,9 @@
 import React from 'react';
-import { View, Text, StyleSheet,TouchableWithoutFeedback } from 'react-native';
+import { View, Text, StyleSheet,TouchableWithoutFeedback,Keyboard } from 'react-native';
 
 const ListItem = props => {
     return (
-        <TouchableWithoutFeedback>
+        <TouchableWithoutFeedback onPress={() => {Keyboard.dismiss();}} >
             <View style={{alignItems:"center"}}>
                 <View style={{...styles.view,...props.viewStyle}}>
                     {props.children}
