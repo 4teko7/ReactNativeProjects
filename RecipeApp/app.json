@@ -1,0 +1,33 @@
+{
+  "expo": {
+    "name": "RecipeApp",
+    "slug": "RecipeApp",
+    "version": "1.0.0",
+    "orientation": "default",
+    "icon": "./assets/images/tic.png",
+    "sdkVersion":"38.0.0",
+    "splash": {
+      "image": "./assets/images/tic.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.bilaltekin.recipeapp",
+      "buildNumber": "1.0.0"
+    },
+    "android": {
+      "package": "com.bilaltekin.recipeapp",
+      "versionCode": 3
+    },
+    "web": {
+      "favicon": "./assets/images/tic.png"
+    }
+  }
+}
