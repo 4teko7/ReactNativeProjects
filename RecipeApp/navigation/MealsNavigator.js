@@ -31,6 +31,15 @@ const MealsNavigator = createStackNavigator({
         initialRouteName:"CategoriesScreen",
         defaultNavigationOptions: {
             headerTitle:"Screen",
+            headerTitleAlign: 'center',
+            // headerTitleStyle: { 
+            //     position:"absolute",
+            //     top:"50%",
+            //     left:"50%",
+            //     transform: translate("50%","50%"),
+            //     textAlign:"center", 
+            //     flex:1
+            // },
             headerStyle: {
                 backgroundColor: Platform.OS === "android" ? colors.primaryColor : ""
             },
