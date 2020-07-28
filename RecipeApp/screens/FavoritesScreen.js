@@ -1,14 +1,15 @@
 import React from 'react';
-import {View, Text,StyleSheet} from 'react-native';
+import {View, Text,StyleSheet,Button} from 'react-native';
 
 
 const FavoritesScreen = props =>{
     return (
         <View style={styles.screen}>
             <Text>FavoritesScreen</Text>
-            <Text>FavoritesScreen</Text>
-            <Text>FavoritesScreen</Text>
-            <Text>FavoritesScreen</Text>
+            <Button title="Go Main Page" onPress={()=>{
+                props.navigation.popToTop()
+            }}
+            />
         </View>
     );
 }

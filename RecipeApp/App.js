@@ -6,7 +6,7 @@ import {AppLoading} from 'expo';
 
 //Components
 import CategoriesScreen from "./screens/CategoriesScreen";
-import CategoryMetalsScreen from "./screens/CategoryMetalsScreen";
+import CategoryMealsScreen from "./screens/CategoryMealsScreen";
 import FavoritesScreen from "./screens/FavoritesScreen";
 import MealDetailScreen from "./screens/MealDetailScreen";
 import FiltersScreen from "./screens/FiltersScreen";
