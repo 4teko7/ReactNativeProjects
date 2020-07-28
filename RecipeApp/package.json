@@ -21,7 +21,9 @@
     "react-native-screens": "~2.9.0",
     "react-native-web": "~0.11.7",
     "react-navigation": "^4.4.0",
-    "react-navigation-stack": "^2.8.2"
+    "react-navigation-header-buttons": "^4.0.2",
+    "react-navigation-stack": "^2.8.2",
+    "@expo/vector-icons": "^10.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.8.6",
