@@ -15,6 +15,8 @@ import FiltersScreen from "./screens/FiltersScreen";
 //Navigation
 import NavigationAppContainer from './navigation/MealsNavigator';
 
+
+
 useScreens();
 
 export default function App() {

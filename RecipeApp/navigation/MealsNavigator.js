@@ -12,6 +12,8 @@ import {Platform} from 'react-native';
 import colors from '../constants/colors';
 
 
+
+
 const MealsNavigator = createStackNavigator({
     // CategoriesScreen: {
     //     screen: CategoriesScreen,
