@@ -29,10 +29,6 @@ CategoryMetalsScreen.navigationOptions = (navigationData) => {
     const selectedCat = CATEGORIES.find(cat => cat.id ===catId);
     return {
         headerTitle: selectedCat.title,
-        headerStyle: {
-            backgroundColor: Platform.OS === "android" ? colors.primaryColor : ""
-        },
-        headerTintColor: Platform.OS === "android" ? "white" : ""
     }
 }
 

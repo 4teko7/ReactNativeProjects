@@ -41,10 +41,6 @@ const CategoriesScreen = props =>{
 
 CategoriesScreen.navigationOptions = {
     headerTitle: "Meal Categories",
-    headerStyle: {
-        backgroundColor: Platform.OS === "android" ? colors.primaryColor : ""
-    },
-    headerTintColor: Platform.OS === "android" ? "white" : ""
 };
 
 const styles = StyleSheet.create({

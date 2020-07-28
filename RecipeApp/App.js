@@ -3,6 +3,7 @@ import React,{useState,useEffect,useRef} from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import loadFonts from './util/loadFonts';
 import {AppLoading} from 'expo';
+import {useScreens} from 'react-native-screens';
 
 //Components
 import CategoriesScreen from "./screens/CategoriesScreen";
@@ -14,10 +15,12 @@ import FiltersScreen from "./screens/FiltersScreen";
 //Navigation
 import NavigationAppContainer from './navigation/MealsNavigator';
 
+useScreens();
+
 export default function App() {
 
   const [fontLoaded,setFontLoaded] = useState(false);
-  const componentDidMount =() =>{
+  const componentDidMount = () =>{
     return loadFonts();
   }
 
