@@ -6,6 +6,9 @@ const FavoritesScreen = props =>{
     return (
         <View style={styles.screen}>
             <Text>FavoritesScreen</Text>
+            <Text>FavoritesScreen</Text>
+            <Text>FavoritesScreen</Text>
+            <Text>FavoritesScreen</Text>
         </View>
     );
 }

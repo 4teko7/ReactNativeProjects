@@ -11,6 +11,8 @@ import FavoritesScreen from "./screens/FavoritesScreen";
 import MealDetailScreen from "./screens/MealDetailScreen";
 import FiltersScreen from "./screens/FiltersScreen";
 
+//Navigation
+import NavigationAppContainer from './navigation/MealsNavigator';
 
 export default function App() {
 
@@ -30,14 +32,8 @@ export default function App() {
   }else{
     return (
       (
-        <View>
-          <Text style={{fontFamily:'Courgette'}}>asdasd</Text>
-          <CategoriesScreen />
-          <CategoryMetalsScreen />
-          <FavoritesScreen />
-          <MealDetailScreen />
-          <FiltersScreen />
-        </View>
+          <NavigationAppContainer />
+
       )
     );
   }

@@ -4,7 +4,7 @@
     "slug": "TodoApp",
     "version": "1.0.1",
     "orientation": "default",
-    "icon": "./assets/ticWithBackgroundColor.jpg",
+    "icon": "./assets/tic.png",
     "sdkVersion":"38.0.0",
     "splash": {
       "image": "./assets/createdByTic.png",
@@ -27,7 +27,7 @@
     },
     "android": {
       "package": "com.bilaltekin.todoapp",
-      "versionCode": 3
+      "versionCode": 4
     }
   }
 }
