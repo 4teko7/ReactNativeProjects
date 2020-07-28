@@ -1,8 +1,14 @@
 import React from 'react';
 import {View, Text,StyleSheet,Button} from 'react-native';
 
+import {CATEGORIES} from '../data/demoData';
 
 const CategoryMetalsScreen = props =>{
+    const catId = props.navigation.getParam("categoryId");
+
+    const selectedCat = CATEGORIES.find(cat => cat.id ===catId);
+    console.log(selectedCat);
+
     return (
         <View style={styles.screen}>
             <Text>Category Metals Screen</Text>

@@ -16,7 +16,12 @@ const CategoriesScreen = props =>{
         keyExtractor={(item,index) => item.id}
         data={CATEGORIES}
         renderItem={itemData =>(
-            <TouchableOpacity onPress={()=>{props.navigation.navigate('CategoryMealsScreen')}}>
+            <TouchableOpacity onPress={()=>{
+                props.navigation.navigate({
+                    routeName: 'CategoryMealsScreen', params:{
+                    categoryId: itemData.item.id
+                }})
+            }}>
             <View style={styles.gridView}>
                 <Text>{itemData.item.title}</Text>
             </View>
