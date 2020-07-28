@@ -6,6 +6,9 @@ import {CATEGORIES,MEALS} from '../data/demoData';
 //Constants
 import colors from '../constants/colors';
 
+//Components
+import MealItem from '../components/MealItem';
+
 const CategoryMetalsScreen = props =>{
     const catId = props.navigation.getParam("categoryId");
 
@@ -13,9 +16,21 @@ const CategoryMetalsScreen = props =>{
 
     const displayedMeals =MEALS.filter(meal => meal.categoryIds.indexOf(catId) >= 0);
 
-    const DataDisplayed = <FlatList keyExtractor={(item,index) => item.id} data={displayedMeals} renderItem={
-    itemData=><View><Text>{itemData.item.id} : {itemData.item.title}</Text></View>
-    }/>
+    const DataDisplayed = 
+    <FlatList keyExtractor={(item,index) => item.id} data={displayedMeals}
+        renderItem={ itemData=> 
+        <MealItem
+        id={itemData.item.id}
+        title={itemData.item.title}
+        onSelectMeal={()=>{}}
+        style={{width:"100%"}}
+        duration={itemData.item.duration}
+        complexity={itemData.item.complexity}
+        affordability={itemData.item.affordability}
+        image={itemData.item.imageUrl}
+        /> }
+        style={styles.flatList}
+    />
 
     return (
         <View style={styles.screen}>
@@ -41,6 +56,9 @@ const styles = StyleSheet.create({
         width:"100%",
         justifyContent:"center",
         alignItems:"center"
+    },
+    flatList: {
+        width:"100%"
     }
 });
 
