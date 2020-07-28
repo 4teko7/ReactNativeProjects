@@ -39,9 +39,12 @@ const styles = StyleSheet.create({
         width:widthOfScreen/2.5,
         justifyContent:"center",
         alignItems:"center",
-        borderRadius:10,
-        overflow:"hidden"
-    },
+        borderRadius:20,
+        overflow:
+            Platform.OS==="android" && Platform.Version >= 21
+            ? "hidden"
+            : "visible",
+        },
     viewContainer: {
         width:"100%",
         height:"100%",
@@ -50,10 +53,10 @@ const styles = StyleSheet.create({
         shadowOpacity:0.26,
         shadowOffset: {width:0,height:2},
         shadowRadius:10,
-        elevation:15,
         padding:15,
         justifyContent:"flex-end",
-        alignItems:"flex-end"
+        alignItems:"flex-end",
+
     },
     title: {
         fontFamily:"Courgette",
