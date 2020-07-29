@@ -1,4 +1,5 @@
 import React from "react";
+import {Text} from 'react-native';
 import { createStackNavigator } from "react-navigation-stack";
 import { createAppContainer } from "react-navigation";
 import { createBottomTabNavigator } from "react-navigation-tabs";
@@ -36,6 +37,9 @@ const defaultStackNavOption = {
     },
     headerTitleStyle: {
         fontSize: 23,
+        fontFamily: "Courgette"
+    },
+    headerBackStyle: {
         fontFamily: "Courgette"
     },
     headerTintColor: Platform.OS === "android" ? "white" : "",
@@ -78,8 +82,9 @@ const bottomTabNavigator = {
                 />
               );
             },
-            tabBarColor: colors.primaryColor
-          },
+            tabBarColor: colors.primaryColor,
+            tabBarLabel: Platform.OS === "android" ? <Text style={{fontFamily:"Courgette"}}>Meals</Text> : "Meals"
+        },
         },
         Favorites: {
           screen: FavNavigator,
@@ -95,7 +100,8 @@ const bottomTabNavigator = {
               );
             },
             // tabBarColor: colors.accentColor
-            tabBarColor: "grey"
+            tabBarColor: "purple",
+            tabBarLabel: Platform.OS === "android" ? <Text style={{fontFamily:"Courgette"}}>Favorites</Text> : "Favorites"
           },
           
 
@@ -110,6 +116,9 @@ const MealsFavTabNavigator =
                 activeColor: colors.accentColor,
                 activeTintColor: "white",
                 shifting: true,
+                labelStyle: {
+                    fontFamily:"Courgette"
+                }
                 // barStyle: {
                 //     backgroundColor:"red"
                 // }
@@ -121,6 +130,9 @@ const MealsFavTabNavigator =
             tabBarOptions: {
                 activeTintColor: colors.accentColor,
                 fontSize: 22,
+                labelStyle:{
+                    fontFamily:"Courgette"
+                }
             },
             }
         );

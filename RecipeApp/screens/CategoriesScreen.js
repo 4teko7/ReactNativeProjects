@@ -34,7 +34,6 @@ const CategoriesScreen = props =>{
 
     return (
         <View style={styles.screen}>
-            <Text>Categories Screen</Text>
             {CategoriesFlatList}
         </View> 
     );
