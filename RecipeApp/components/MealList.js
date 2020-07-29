@@ -12,7 +12,7 @@ const MealList=props=>{
                 title={itemData.item.title}
                 onSelectMeal={()=>{
                     navigation.navigate({routeName: "MealDetailScreen",params: {
-                        mealId: itemData.item.id
+                        mealId: itemData.item.id,
                     }})
                 }}
                 style={{width:"100%"}}
