@@ -17,10 +17,12 @@ import { Platform } from "react-native";
 //Constants
 import colors from "../constants/colors";
 import { Colors } from "react-native/Libraries/NewAppScreen";
+import { color } from "react-native-reanimated";
 
 const defaultStackNavOption = {
     headerTitle: "Screen",
     headerTitleAlign: "center",
+    
     // headerTitleStyle: {
     //     position:"absolute",
     //     top:"50%",
@@ -30,7 +32,11 @@ const defaultStackNavOption = {
     //     flex:1
     // },
     headerStyle: {
-      backgroundColor: Platform.OS === "android" ? colors.primaryColor : "",
+        backgroundColor: Platform.OS === "android" ? colors.primaryColor : ""
+    },
+    headerTitleStyle: {
+        fontSize: 23,
+        fontFamily: "Courgette"
     },
     headerTintColor: Platform.OS === "android" ? "white" : "",
   }
@@ -129,10 +135,26 @@ const FiltersNavigator = createStackNavigator({
 const MainNavigator = createDrawerNavigator({
     MealsAndFavsTabsNavigator: {
         screen: MealsFavTabNavigator,
-        headerTitle: "Meals",
-        headerTitleAlign: "center",
+        navigationOptions: {
+            drawerLabel: "Meals"
+        }
     },
-    FilterScreen: FiltersNavigator
+    FilterScreen: {
+        screen : FiltersNavigator,
+        navigationOptions: {
+            drawerLabel:"Filter",
+            
+        }
+    }
+},
+{
+    contentOptions: {
+        activeTintColor: colors.accentColor,
+        labelStyle: {
+            fontWeight: "normal",
+            fontFamily: "Courgette"
+        },
+    }
 })
 const NavigationAppContainer = createAppContainer(MainNavigator);
 

@@ -3,7 +3,7 @@ import React,{useState,useEffect,useRef} from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import loadFonts from './util/loadFonts';
 import {AppLoading} from 'expo';
-import {useScreens} from 'react-native-screens';
+import {enableScreens} from 'react-native-screens';
 
 //Components
 import CategoriesScreen from "./screens/CategoriesScreen";
@@ -17,7 +17,7 @@ import NavigationAppContainer from './navigation/MealsNavigator';
 
 
 
-useScreens();
+enableScreens();
 
 export default function App() {
 
