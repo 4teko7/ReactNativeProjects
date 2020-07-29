@@ -7,7 +7,7 @@ import {CATEGORIES,MEALS} from '../data/demoData';
 import colors from '../constants/colors';
 
 //Components
-import MealItem from '../components/MealItem';
+import MealList from '../components/MealList';
 
 const CategoryMetalsScreen = props =>{
     const catId = props.navigation.getParam("categoryId");
@@ -15,31 +15,9 @@ const CategoryMetalsScreen = props =>{
     const selectedCat = CATEGORIES.find(cat => cat.id ===catId);
 
     const displayedMeals =MEALS.filter(meal => meal.categoryIds.indexOf(catId) >= 0);
-
-    const DataDisplayed = 
-    <FlatList keyExtractor={(item,index) => item.id} data={displayedMeals}
-        renderItem={ itemData=> 
-        <MealItem
-        id={itemData.item.id}
-        title={itemData.item.title}
-        onSelectMeal={()=>{
-            props.navigation.navigate({routeName: "MealDetailScreen",params: {
-                mealId: itemData.item.id
-            }})
-        }}
-        style={{width:"100%"}}
-        duration={itemData.item.duration}
-        complexity={itemData.item.complexity}
-        affordability={itemData.item.affordability}
-        image={itemData.item.imageUrl}
-        /> }
-        style={styles.flatList}
-    />
-
+    
     return (
-        <View style={styles.screen}>
-            {DataDisplayed}
-        </View>
+        <MealList infos={displayedMeals} navigation={props.navigation} />
     );
 }
 
@@ -53,17 +31,6 @@ CategoryMetalsScreen.navigationOptions = (navigationData) => {
 }
 
 
-const styles = StyleSheet.create({
-    screen: {
-        flex:1,
-        height:"100%",
-        width:"100%",
-        justifyContent:"center",
-        alignItems:"center"
-    },
-    flatList: {
-        width:"100%"
-    }
-});
+
 
 export default CategoryMetalsScreen;

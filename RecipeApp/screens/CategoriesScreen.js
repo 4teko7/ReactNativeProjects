@@ -16,12 +16,14 @@ const CategoriesScreen = props =>{
     <FlatList
         keyExtractor={(item,index) => item.id}
         data={CATEGORIES}
-        renderItem={itemData => <CategoryGridTile title={itemData.item.title} color={itemData.item.color} onSelect={() => {
-            props.navigation.navigate({
-                routeName: 'CategoryMealsScreen', params:{
-                categoryId: itemData.item.id
-            }})
-        }}/>}
+        renderItem={itemData =>
+        <CategoryGridTile title={itemData.item.title} color={itemData.item.color} onSelect={() => {
+                props.navigation.navigate({
+                    routeName: 'CategoryMealsScreen', params:{
+                    categoryId: itemData.item.id
+                }})
+            }}
+        />}
         numColumns={2}
     />
 

@@ -1,27 +1,23 @@
 import React from 'react';
 import {View, Text,StyleSheet,Button} from 'react-native';
 
+//DATABASE
+import {MEALS} from '../data/demoData';
+
+//Components
+import MealList from '../components/MealList';
+
 
 const FavoritesScreen = props =>{
+    const favMeals = MEALS.filter(meal=>meal.id ==="1" || meal.id==="2" || meal.id==="3");
     return (
-        <View style={styles.screen}>
-            <Text>FavoritesScreen</Text>
-            <Button title="Go Main Page" onPress={()=>{
-                props.navigation.popToTop()
-            }}
-            />
-        </View>
+        <MealList infos={favMeals} navigation={props.navigation} />
     );
 }
 
-const styles = StyleSheet.create({
-    screen: {
-        flex:1,
-        height:"100%",
-        width:"100%",
-        justifyContent:"center",
-        alignItems:"center"
-    }
-});
+FavoritesScreen.navigationOptions = {
+    headerTitle: "Your Favoritess",
+};
+
 
 export default FavoritesScreen;
