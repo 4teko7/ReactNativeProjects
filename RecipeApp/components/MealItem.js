@@ -3,7 +3,6 @@ import { View, Text, StyleSheet, TouchableOpacity,ImageBackground } from "react-
 
 const MealItem = (props) => {
     const {id,title,onSelectMeal,duration,complexity,affordability,image} = props;
-    console.log("IMAGE : " , image)
   return (
     <View style={styles.grandParentView}>
         <TouchableOpacity onPress={onSelectMeal} style={styles.touchable} onPress={onSelectMeal}>
