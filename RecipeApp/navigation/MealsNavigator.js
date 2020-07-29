@@ -65,6 +65,7 @@ const bottomTabNavigator = {
                 />
               );
             },
+            tabBarColor: colors.primaryColor
           },
         },
         Favorites: {
@@ -80,7 +81,11 @@ const bottomTabNavigator = {
                 />
               );
             },
+            // tabBarColor: colors.accentColor
+            tabBarColor: "grey"
           },
+          
+
         }
 }
 const MealsFavTabNavigator =
@@ -88,8 +93,13 @@ const MealsFavTabNavigator =
     ? createMaterialBottomTabNavigator(
         bottomTabNavigator,
         {
-            activeTintColor: colors.accentColor,
-            shifting: true
+            activeColor: "white",
+            activeColor: colors.accentColor,
+            activeTintColor: "white",
+            shifting: true,
+            // barStyle: {
+            //     backgroundColor:"red"
+            // }
         }
     )
     : createBottomTabNavigator(
