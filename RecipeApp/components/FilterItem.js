@@ -5,17 +5,20 @@ import { Switch } from 'react-native-paper';
 //Constants
 import colors from '../constants/colors';
 
+//Components
+import MyCourgetteText from '../components/MyCourgetteText';
+
 const FilterItem = props => {
-    const {isGlutenFree,setIsGlutenFree} = props;
+    const {state,onChange} = props;
     const children = props.children;
     return (
         <View style={styles.filterContainer}>
-            <View style={styles.parentTextView}><Text>{children}</Text></View>
+            <View style={styles.parentTextView}><MyCourgetteText>{children}</MyCourgetteText></View>
             <Switch
-            value={isGlutenFree}
+            value={state}
             thumbColor={Platform.OS==="android" ? colors.primaryColor : ""}
             trackColor={{true:colors.primaryColor}}
-            onValueChange={newValue => setIsGlutenFree(newValue)}
+            onValueChange={onChange}
             />
         </View>
     );
@@ -23,13 +26,12 @@ const FilterItem = props => {
 
 const styles = StyleSheet.create({
     parentTextView: {
-        margin:20,
     },
     filterContainer: {
         flexDirection:"row",
-        justifyContent:"space-around",
-        alignItems:"center",
-        width:"80%"
+        justifyContent:"space-between",
+        width:"80%",
+        marginVertical:20,
     } 
 });
 
