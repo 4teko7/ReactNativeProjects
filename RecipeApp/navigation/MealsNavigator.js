@@ -121,10 +121,17 @@ const MealsFavTabNavigator =
 
 const FiltersNavigator = createStackNavigator({
         FiltersScreen: FiltersScreen
+},
+{
+    defaultNavigationOptions: defaultStackNavOption
 })
 
 const MainNavigator = createDrawerNavigator({
-    MealsAndFavsTabsNavigator: MealsFavTabNavigator,
+    MealsAndFavsTabsNavigator: {
+        screen: MealsFavTabNavigator,
+        headerTitle: "Meals",
+        headerTitleAlign: "center",
+    },
     FilterScreen: FiltersNavigator
 })
 const NavigationAppContainer = createAppContainer(MainNavigator);
